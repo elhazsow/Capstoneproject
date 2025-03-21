@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import configparser
+import os
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,11 +78,28 @@ WSGI_APPLICATION = 'Littlelemon.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Define the path to your .cnf file ## when using a .cnf file on production server
+## cnf_file_path = os.path.join(BASE_DIR, 'my.cnf')
+
+# Create a ConfigParser instance
+## config = configparser.ConfigParser()
+## config.read(cnf_file_path)
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': config.get('CLIENT', 'NAME'),
+        # 'USER': config.get('CLIENT', 'USER'),
+        # 'PASSWORD': config.get('CLIENT', 'PASSWORD'),
+        # 'HOST': config.get('CLIENT', 'HOST'),
+        # 'PORT': config.get('CLIENT', 'PORT'),
+        "NAME": "littlelemoncapstone",
+        "USER": "root",
+        "PASSWORD": "Elhaz492878@",
+        "HOST": "localhost",
+        "PORT": "3306",
+        
+}
 }
 
 
