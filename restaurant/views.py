@@ -13,15 +13,16 @@ def index(request):
 class MenuItemAPIView(ListCreateAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuItemSerializer
+    permission_classes=[IsAuthenticated]
     
 class SingleMenuItemAPIView(RetrieveUpdateAPIView, DestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuItemSerializer
     
-    
-    
+
+
 class BookingViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
-    
+     
