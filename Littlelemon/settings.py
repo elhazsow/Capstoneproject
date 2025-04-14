@@ -98,7 +98,7 @@ DATABASES = {
         # 'PORT': config.get('CLIENT', 'PORT'),
         "NAME": "littlelemoncapstone",
         "USER": "root",
-        "PASSWORD": "Elhaz492878@",
+        "PASSWORD": "*************",
         "HOST": "localhost",
         "PORT": "3306",
         
