@@ -5,15 +5,16 @@ from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 
 class ViewTest(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUp(cls):
         # Set up any necessary data for the test
-        self.client = APIClient(enforce_csrf_checks=True)  # Create a test client instance
-        self.user = User.objects.create_user(username='testuser123', password='testpassword')  # Create a test user
-        self.token = Token.objects.create(user=self.user)  # Create a token for the test user
-        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)  # Set the token in the request headers
-        self.menu_item = {'title': 'Test Menu View', 'price': 9.99, 'inventory': 10}
-        self.list_url = reverse('menu')
-        self.detail_url = reverse('single_menu_item', kwargs={'pk':4}) 
+        cls.client = APIClient(enforce_csrf_checks=True)  # Create a test client instance
+        cls.user = User.objects.create_user(username='testuser123', password='testpassword')  # Create a test user
+        cls.token = Token.objects.create(user=cls.user)  # Create a token for the test user
+        cls.client.credentials(HTTP_AUTHORIZATION='Token ' + cls.token.key)  # Set the token in the request headers
+        cls.menu_item = {'title': 'Test Menu View', 'price': 9.99, 'inventory': 10}
+        cls.list_url = reverse('menu')
+        cls.detail_url = reverse('single_menu_item', kwargs={'pk':4}) 
      
     
     def test_create_menu_item(self):

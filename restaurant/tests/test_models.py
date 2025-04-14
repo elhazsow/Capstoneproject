@@ -8,10 +8,10 @@ from django.utils import timezone
 
 
 class MenuTest(TestCase):
-
-    def setUp(self):
+    @classmethod
+    def setUp(cls):
         # Create a test menu item before each test
-        self.menu_item = Menu.objects.create(title="Test Item", price=9.99, inventory=10)
+        cls.menu_item = Menu.objects.create(title="Test Item", price=9.99, inventory=10)
     
     def test_get_item(self):
         menu = Menu.objects.get(title="Test Item")
