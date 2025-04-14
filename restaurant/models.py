@@ -8,7 +8,7 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-# Create your models here.
+
 class Booking(BaseModel):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
