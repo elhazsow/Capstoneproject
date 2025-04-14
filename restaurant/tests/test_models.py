@@ -38,11 +38,11 @@ class MenuTest(TestCase):
    
 
 class BookingTest(TestCase):
-    time=timezone.now().time()
-    
-    def setUp(self):
+    @classmethod
+    def setUp(cls):
+        cls.time = timezone.now().time()
         # Create a test booking before each test
-        self.booking = Booking.objects.create(name="Test Booking", date = date.today(), time = self.time, no_of_guests=6)
+        cls.booking = Booking.objects.create(name="Test Booking", date = date.today(), time = cls.time, no_of_guests=6)
 
     def test_booking_creation(self):
         booking = Booking.objects.get(name="Test Booking")
