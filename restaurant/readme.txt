@@ -3,7 +3,7 @@
 - http://127.0.0.1:8000/restaurant/menu/{pk}
 - http://127.0.0.1:8000/restaurant/booking/tables
 - http://127.0.0.1:8000/restaurant/booking/tables/{pk}
-- http://127.0.0.1:8000/restaurant/api-token-auth/
+- http://127.0.0.1:8000/restaurant/api-token-auth
 
 # Authentication
 - Use the token obtained from the api-token-auth endpoint to authenticate requests to the booking endpoints.
