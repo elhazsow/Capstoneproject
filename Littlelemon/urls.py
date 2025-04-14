@@ -20,7 +20,8 @@ from rest_framework import routers
 from restaurant import views
 
 
-router = routers.DefaultRouter()
+router = routers.DefaultRouter(trailing_slash=False)
+# Register the viewset with the router
 router.register(r'tables', views.BookingViewSet)
 
 urlpatterns = [

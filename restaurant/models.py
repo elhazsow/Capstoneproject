@@ -14,7 +14,7 @@ class Booking(BaseModel):
     name = models.CharField(max_length=255)
     date = models.DateField()
     time = models.TimeField()
-    no_of_guests = models.IntegerField(6)
+    no_of_guests = models.IntegerField(default=1)
    
 
     def __str__(self):
